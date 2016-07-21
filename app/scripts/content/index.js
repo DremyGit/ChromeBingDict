@@ -8,7 +8,7 @@ function getSelectText() {
   return select.toString();
 }
 
-function insertResult(text, result) {
+function insertResult(result, text) {
   var select = window.getSelection();
   if (select.type !== 'Range') {
     return;
@@ -17,12 +17,25 @@ function insertResult(text, result) {
   var span = window.document.createElement('span');
   span.style.color = '#1db34f';
   span.setAttribute('class', 'chrome-dict');
-  span.setAttribute('id', 'chrome-dict-' + text.replace('\s+', '-'));
   span.innerText = ' [ ' + result + ' ] ';
+  if (text) {
+    span.setAttribute('id', 'chrome-dict-' + text.replace(/\s+/, '-'));
+  }
   span.ondblclick = function () {
     span.remove();
   };
   select.focusNode.parentNode.insertBefore(span, rightNode);
+  return span;
+}
+
+function removeResult(span) {
+  if (typeof span === 'object') {
+    span.remove();
+  } else if (typeof span === 'string') {
+    var text = span;
+    span = document.getElementById('chrome-dict-' + text.replace(/\s+/, '-'));
+    span.parentNode.removeChild(span);
+  }
 }
 
 function removeAllResult() {
@@ -36,11 +49,14 @@ window.addEventListener('keyup', e => {
   if (e.altKey) {
     if (e.keyCode === 70) {     // Press 'F'
       var text = getSelectText();
+      var span = insertResult('Loading...');
       search(text).then(result => {
-        insertResult(text, result.result.join(', '))
+        removeResult(span);
+        span = insertResult(result.result.join(', '), text)
       }).catch(err => {
         if (err === '未找到') {
-          insertResult(err);
+          removeResult(span);
+          span = insertResult(err);
           return
         }
         throw err

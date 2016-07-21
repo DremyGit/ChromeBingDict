@@ -20,8 +20,7 @@ export default function (text) {
 
 export function parseDescription(html) {
   const descReg = /<meta name="description" content="([^"]+?)" \/>/;
-  const desc = html.match(descReg)[1];
-  return desc;
+  return html.match(descReg)[1];
 }
 
 export function isPhrase(description) {
@@ -51,10 +50,12 @@ export function parsePhrase(description) {
   function merge(phrase) {
     var values = [];
     for (let key in phrase) {
-      //values.push(phrase[key].map(x => x));
       phrase[key].map(x => values.push(x))
     }
     phrase.result = unique(values);
+    if (phrase.result.length === 0) {
+      throw new Error('未找到');
+    }
   }
 
   merge(phrase);

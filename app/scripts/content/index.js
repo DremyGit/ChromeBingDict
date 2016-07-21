@@ -1,4 +1,5 @@
 import search from '../search'
+import { isTheKey, saveKey2Storage, findKeyFromStorage } from '../common/key'
 
 function getSelectText() {
   var select = window.getSelection();
@@ -46,23 +47,29 @@ function removeAllResult() {
 }
 
 window.addEventListener('keyup', e => {
-  if (e.altKey) {
-    if (e.keyCode === 70) {     // Press 'F'
-      var text = getSelectText();
-      var span = insertResult('Loading...');
-      search(text).then(result => {
+  isTheKey('SHOW', e).then(() => {
+    var text = getSelectText();
+    var span = insertResult('Loading...');
+    search(text).then(result => {
+      removeResult(span);
+      span = insertResult(result.result.join(', '), text)
+    }).catch(err => {
+      if (err === '未找到') {
         removeResult(span);
-        span = insertResult(result.result.join(', '), text)
-      }).catch(err => {
-        if (err === '未找到') {
-          removeResult(span);
-          span = insertResult(err);
-          return
-        }
-        throw err
-      });
-    } else if (e.keyCode === 67) {  // Press 'C'
+        span = insertResult(err);
+        return
+      }
+      throw err
+    });
+  }).catch(function() {});
+  isTheKey('CLEAN', e).then(() => {
       removeAllResult();
-    }
-  }
+  }).catch(function() {});
+});
+
+findKeyFromStorage('SHOW').catch(() => {
+  saveKey2Storage('SHOW', {keyCode: 86})
+});
+findKeyFromStorage('CLEAN').catch(() => {
+  saveKey2Storage('CLEAN', {keyCode: 67})
 });

@@ -1,0 +1,28 @@
+{
+  "name": "chrome-dict",
+  "version": "0.0.1",
+  "description": "A Chrome extension to translate in page",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register test/test.js",
+    "start": "webpack --config webpack.config.dev.js --watch"
+  },
+  "author": "Dremy",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "copy-webpack-plugin": "^3.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "mocha": "^2.5.3",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "es6-promise": "^3.2.1",
+    "whatwg-fetch": "^1.0.0"
+  }
+}

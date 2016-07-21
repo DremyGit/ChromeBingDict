@@ -1,4 +1,6 @@
-import search from '../search'
+import 'es6-promise';
+import search from '../search';
+import { saveKey2Storage, findKeyFromStorage, key2KeyName, keyName2Key} from '../common/key';
 
 var input = document.getElementById('text');
 
@@ -16,22 +18,20 @@ function buildResultHtml(result) {
   return html;
 }
 
-function buildStatusHtml(text) {
-  var html = '';
-  return '<div class="card" id="status">' + text + '</div>';
+function setStateHtml(text) {
+  document.getElementById('result').innerHTML = '<div class="card" id="status">' + text + '</div>';
 }
 
 
 input.onkeydown = function (e) {
   if (e.keyCode === 13) {
-    var resultDiv = document.getElementById('result');
     var word = input.value;
-    resultDiv.innerHTML = buildStatusHtml('努力查找中...');
+    setStateHtml("努力查找中...");
     search(word).then(res => {
-      resultDiv.innerHTML = buildResultHtml(res);
+      document.getElementById('result').innerHTML = buildResultHtml(res);
     }).catch(err => {
       if (err === '未找到') {
-        resultDiv.innerHTML = buildStatusHtml('未找到... 换个词试试 ^_^');
+        setStateHtml('未找到... 换个词试试 ^_^')
         return
       }
       throw err
@@ -40,9 +40,34 @@ input.onkeydown = function (e) {
 };
 
 document.getElementById('about').onclick = function about() {
-  alert('开发: Dremy\n版本: 0.2.0');
-}
+  setStateHtml('<ul><li>开发: Dremy</li><li>版本: v0.2.0</li></ul>');
+};
 document.getElementById('setting').onclick = function setting() {
-  alert('快捷查询: 在页面上选中要查询的文字后, 按v键可将查询结果显示到文字后方, 按c键清空')
-}
+  var settingHtml = '' +
+    '<div class="input-group"><label>即时显示</label><input value="" readonly id="key-show" data-name="SHOW"></div><br>' +
+    '<div class="input-group"><label>全部清除</label><input value="" readonly id="key-clean" data-name="CLEAN"></div>';
+  setStateHtml(settingHtml);
 
+  var keyShow = '';
+  var keyClean = '';
+  var inputShow, inputClean;
+  Promise.all([
+    findKeyFromStorage('SHOW').then(key2KeyName).then(keyName => keyShow = keyName),
+    findKeyFromStorage('CLEAN').then(key2KeyName).then(keyName => keyClean = keyName)
+  ]).then(() => {
+    inputShow = document.getElementById('key-show');
+    inputClean = document.getElementById('key-clean');
+    inputShow.value = keyShow;
+    inputClean.value = keyClean;
+    inputShow.onclick = inputClean.onclick = function () {
+      this.select();
+    };
+    inputShow.onkeydown = inputClean.onkeydown = function (e) {
+      this.value = key2KeyName(e);
+      this.select();
+      if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 48 && e.keyCode <= 57)) {
+        saveKey2Storage(this.getAttribute('data-name'), e);
+      }
+    }
+  });
+};

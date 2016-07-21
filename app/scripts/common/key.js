@@ -11,7 +11,7 @@ export function keyName2Key(keyName) {
   if (typeof keyName !== 'string') {
     throw  new TypeError(keyName + ' is not a string');
   }
-  keyName.replace(/\s+/, '').split('+').forEach(keyName => {
+  keyName.replace(/\s+/g, '').split('+').forEach(keyName => {
     if (/^[A-Z]$/.test(keyName)) {
       key.keyCode = keyName.charCodeAt(0);
       return;
@@ -42,8 +42,9 @@ export function key2KeyName(key) {
   if (key.altKey) {
     keyArr.push(KEY_ALT, PLUS)
   }
-  keyArr.push(String.fromCharCode(key.keyCode));
-  console.log('key2keyName', keyArr);
+  if ((key.keyCode >= 65 && key.keyCode <= 90) || key.keyCode >= 48 && key.keyCode <= 57) {
+    keyArr.push(String.fromCharCode(key.keyCode));
+  }
   return keyArr.join('');
 }
 

@@ -1,5 +1,5 @@
 import search from '../search'
-import { isTheKey, saveKey2Storage, findKeyFromStorage } from '../common/key'
+import { isTheKey, saveKey2Storage, findKeyFromStorage, key2KeyName } from '../common/key'
 
 function getSelectText() {
   var select = window.getSelection();
@@ -73,3 +73,4 @@ findKeyFromStorage('SHOW').catch(() => {
 findKeyFromStorage('CLEAN').catch(() => {
   saveKey2Storage('CLEAN', {keyCode: 67})
 });
+

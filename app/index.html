@@ -10,7 +10,7 @@
       margin: 0;
     }
     #container{
-      width: 250px;
+      width: 200px;
       height: 100%;
       background-color: #f0f0f0;
       font-size: 13px;
@@ -34,11 +34,15 @@
     .result h3 {
       margin: 0;
       padding: 0;
+      color: #f8a501;
     }
-    .result ol {
+    ol, ul {
       padding-left: 25px;
     }
-    .result li {
+    ul > li {
+      list-style: none;
+    }
+    li {
       margin: 8px 0;
     }
     a,
@@ -57,6 +61,9 @@
     #setting {
       float: right;
     }
+    .input-group input {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -65,30 +72,6 @@
     <input id="text" placeholder="输入要查询的内容" autocomplete="off">
   </div>
   <div id="result">
-    <!--<div id="loding" class="card">-->
-      <!--查询中.....-->
-    <!--</div>-->
-    <!--<div class="card result">-->
-      <!--<h3>n：</h3>-->
-      <!--<ol>-->
-        <!--<li>哈哈的笑声</li>-->
-        <!--<li>〔美俚〕(对某人的)嘲笑</li>-->
-      <!--</ol>-->
-    <!--</div>-->
-    <!--<div class="card result">-->
-      <!--<h3>int：</h3>-->
-      <!--<ol>-->
-        <!--<li>哈哈!〔表示嘲笑等〕</li>-->
-      <!--</ol>-->
-    <!--</div>-->
-    <!--<div class="card result">-->
-      <!--<h3>网络释义：</h3>-->
-      <!--<ol>-->
-        <!--<li>河东勋</li>-->
-        <!--<li>呵呵</li>-->
-        <!--<li>河东勳</li>-->
-      <!--</ol>-->
-    <!--</div>-->
   </div>
   <div id="footer" class="card">
     <a id="about">关于Chrome Dict</a>

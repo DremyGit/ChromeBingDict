@@ -4,20 +4,96 @@
   <meta charset="UTF-8">
   <title>Chrome dict</title>
   <style>
-    #container{
-      width: 200px;
+    html, body {
+      color: #f0f0f0;
+      padding: 0;
+      margin: 0;
     }
-    #result ul {
+    #container{
+      width: 250px;
+      height: 100%;
+      background-color: #f0f0f0;
+      font-size: 13px;
+      color: #555;
+    }
+    .card {
+      background-color: #fff;
+      padding: 16px 8px;
+      margin-top: 10px;
+      height: 100%;
+    }
+    #input {
+      margin-top: 0;
+    }
+    #text {
+      border: none;
+      outline: none;
+      color: #666;
+      font-size: 14px;
+    }
+    .result h3 {
+      margin: 0;
+      padding: 0;
+    }
+    .result ol {
       padding-left: 25px;
+    }
+    .result li {
+      margin: 8px 0;
+    }
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      color: #666;
+    }
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #setting {
+      float: right;
     }
   </style>
 </head>
 <body>
 <div id="container">
-  <h1>Chrome dict</h1>
-  <label for="text"></label>
-  <input id="text">
-  <div id="result"></div>
+  <div id="input" class="card">
+    <input id="text" placeholder="输入要查询的内容" autocomplete="off">
+  </div>
+  <div id="result">
+    <!--<div id="loding" class="card">-->
+      <!--查询中.....-->
+    <!--</div>-->
+    <!--<div class="card result">-->
+      <!--<h3>n：</h3>-->
+      <!--<ol>-->
+        <!--<li>哈哈的笑声</li>-->
+        <!--<li>〔美俚〕(对某人的)嘲笑</li>-->
+      <!--</ol>-->
+    <!--</div>-->
+    <!--<div class="card result">-->
+      <!--<h3>int：</h3>-->
+      <!--<ol>-->
+        <!--<li>哈哈!〔表示嘲笑等〕</li>-->
+      <!--</ol>-->
+    <!--</div>-->
+    <!--<div class="card result">-->
+      <!--<h3>网络释义：</h3>-->
+      <!--<ol>-->
+        <!--<li>河东勋</li>-->
+        <!--<li>呵呵</li>-->
+        <!--<li>河东勳</li>-->
+      <!--</ol>-->
+    <!--</div>-->
+  </div>
+  <div id="footer" class="card">
+    <a id="about">关于Chrome Dict</a>
+    <a id="setting">设置</a>
+  </div>
 </div>
 <script src="./index.js"></script>
 </body>

@@ -22,6 +22,13 @@ function setStateHtml(text) {
   document.getElementById('result').innerHTML = '<div class="card" id="status">' + text + '</div>';
 }
 
+findKeyFromStorage('SHOW').catch(() => {
+  saveKey2Storage('SHOW', {keyCode: 86})
+});
+findKeyFromStorage('CLEAN').catch(() => {
+  saveKey2Storage('CLEAN', {keyCode: 67})
+});
+
 
 input.onkeydown = function (e) {
   if (e.keyCode === 13) {
@@ -40,7 +47,7 @@ input.onkeydown = function (e) {
 };
 
 document.getElementById('about').onclick = function about() {
-  setStateHtml('<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v0.3.1</li></ul>');
+  setStateHtml('<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v1.1.0</li></ul>');
 };
 document.getElementById('setting').onclick = function setting() {
   var settingHtml = '' +

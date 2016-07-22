@@ -16,7 +16,7 @@
 
 ### Chrome网上商店安装
 
-[Chrome Web Store](https://chrome.google.com/webstore/developer/edit/enaoikphbblijoloobmapommnigpocid)安装即可
+[Chrome Web Store](https://chrome.google.com/webstore/detail/chrome-bing-dict/enaoikphbblijoloobmapommnigpocid)安装即可
 
 
 ### 手动安装

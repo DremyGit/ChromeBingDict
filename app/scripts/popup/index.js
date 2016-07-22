@@ -47,7 +47,7 @@ input.onkeydown = function (e) {
 };
 
 document.getElementById('about').onclick = function about() {
-  setStateHtml('<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v1.1.0</li></ul>');
+  setStateHtml('<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v1.1.1</li></ul>');
 };
 document.getElementById('setting').onclick = function setting() {
   var settingHtml = '' +

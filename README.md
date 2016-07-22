@@ -14,7 +14,12 @@
 
 ## 如何安装
 
-因为各种原因, 此插件暂时无法上架到Chrome Web Store, 只能采用用户手动安装的方式, 并且无法自动更新, 需要使用以下安装步骤:
+### Chrome网上商店安装
+
+[Chrome Web Store](https://chrome.google.com/webstore/developer/edit/enaoikphbblijoloobmapommnigpocid)安装即可
+
+
+### 手动安装
 
 1. 从Release页面下载最新版本的`.crx`文件
 1. 打开Chrome的设置页->扩展管理

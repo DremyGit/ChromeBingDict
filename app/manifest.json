@@ -1,7 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "Chrome Dict",
-  "version": "0.3.0",
+  "name": "Chrome Bing Dict",
+  "version": "0.3.1",
+  "icons": {
+    "128": "icon.png"
+  },
+  "author": "Dremy",
 
   "browser_action": {
     "default_icon": "icon.png",
@@ -16,5 +20,6 @@
   ],
   "permissions": [
     "storage"
-  ]
+  ],
+  "update_url": "https://raw.githubusercontent.com/DremyGit/ChromeBingDict/master/update.xml"
 }

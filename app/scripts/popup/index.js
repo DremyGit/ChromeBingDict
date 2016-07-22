@@ -40,7 +40,7 @@ input.onkeydown = function (e) {
 };
 
 document.getElementById('about').onclick = function about() {
-  setStateHtml('<ul><li>开发: Dremy</li><li>版本: v0.2.0</li></ul>');
+  setStateHtml('<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v0.3.1</li></ul>');
 };
 document.getElementById('setting').onclick = function setting() {
   var settingHtml = '' +
@@ -52,8 +52,8 @@ document.getElementById('setting').onclick = function setting() {
   var keyClean = '';
   var inputShow, inputClean;
   Promise.all([
-    findKeyFromStorage('SHOW').then(key2KeyName).then(keyName => keyShow = keyName),
-    findKeyFromStorage('CLEAN').then(key2KeyName).then(keyName => keyClean = keyName)
+    findKeyFromStorage('SHOW').then(key2KeyName).then(keyName => keyShow = keyName).catch(function () {}),
+    findKeyFromStorage('CLEAN').then(key2KeyName).then(keyName => keyClean = keyName).catch(function () {})
   ]).then(() => {
     inputShow = document.getElementById('key-show');
     inputClean = document.getElementById('key-clean');

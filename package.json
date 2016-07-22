@@ -1,5 +1,5 @@
 {
-  "name": "chrome-dict",
+  "name": "chrome-bing-dict",
   "version": "0.0.1",
   "description": "A Chrome extension to translate in page",
   "main": "index.js",

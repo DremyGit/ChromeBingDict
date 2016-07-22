@@ -3,3 +3,4 @@
 /.tmp
 /dist
 dist.*
+.DS_Store

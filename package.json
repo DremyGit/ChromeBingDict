@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register test/test.js",
     "start": "webpack --config webpack.config.dev.js --watch",
-    "build": "webpack --config webpack.config.prod.js"
+    "build": "webpack --config webpack.config.prod.js && zip -r dist.zip dist"
   },
   "author": "Dremy",
   "license": "GPL-3.0",

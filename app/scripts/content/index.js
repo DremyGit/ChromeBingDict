@@ -54,7 +54,7 @@ window.addEventListener('keyup', e => {
       removeResult(span);
       span = insertResult(result.result.join(', '), text)
     }).catch(err => {
-      if (err === '未找到') {
+      if (err === '未找到' || err && err.name === '未找到') {
         removeResult(span);
         span = insertResult(err);
         return

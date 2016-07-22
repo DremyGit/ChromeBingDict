@@ -10,7 +10,12 @@ export default function (text) {
   return doSearch(text).then(html => {
     const description = parseDescription(html);
     if (isPhrase(description)) {
-      return Promise.resolve(parsePhrase(description));
+      try {
+        var phrase = parsePhrase(description);
+        return Promise.resolve(parsePhrase(description));
+      } catch (e) {
+        return Promise.reject("未找到");
+      }
     } else {
       return Promise.reject("未找到");
     }

@@ -37,8 +37,8 @@ input.onkeydown = function (e) {
     search(word).then(res => {
       document.getElementById('result').innerHTML = buildResultHtml(res);
     }).catch(err => {
-      if (err === '未找到') {
-        setStateHtml('未找到... 换个词试试 ^_^')
+      if (err === '未找到' || err && err.name === '未找到') {
+        setStateHtml('未找到... 换个词试试 ^_^');
         return
       }
       throw err
@@ -47,7 +47,7 @@ input.onkeydown = function (e) {
 };
 
 document.getElementById('about').onclick = function about() {
-  setStateHtml('<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v1.1.1</li></ul>');
+  setStateHtml('<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v1.1.2</li></ul>');
 };
 document.getElementById('setting').onclick = function setting() {
   var settingHtml = '' +

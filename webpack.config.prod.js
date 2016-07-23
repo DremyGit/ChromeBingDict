@@ -17,7 +17,8 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { context: paths.app, from: './*', to: '.'}
+      { context: paths.app, from: './*', to: '.'},
+      { context: paths.app, from: './_locales/**/*', to: '.'}
     ], {
       ignore: [{ glob: '**/*', dot: true }]
     }),

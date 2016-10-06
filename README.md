@@ -2,7 +2,7 @@
 
 基于Bing词典的Chrome插件, 中英词汇互译, 翻译结果可内联显示
 
-![](https://raw.githubusercontent.com/DremyGit/ChromeBingDict/master/web.jpg)
+![](https://raw.githubusercontent.com/DremyGit/ChromeBingDict/master/web.png)
 
 ![](https://raw.githubusercontent.com/DremyGit/ChromeBingDict/master/popup.png)
 

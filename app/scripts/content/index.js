@@ -49,6 +49,9 @@ function removeAllResult() {
 window.addEventListener('keyup', e => {
   isTheKey('SHOW', e).then(() => {
     var text = getSelectText();
+    if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || text.trim() === '') {
+      return;
+    }
     var span = insertResult('Loading...');
     search(text).then(result => {
       removeResult(span);

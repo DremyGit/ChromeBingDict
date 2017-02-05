@@ -4,7 +4,7 @@
   "default_locale": "en",
   "description": "翻译来自Bing词典，可自动识别中英互译，可将翻译结果直接插入到页面内容之中",
   "short_name": "__MSG_shortName__",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "icons": {
     "128": "icon.png"
   },

@@ -34,6 +34,7 @@ input.onkeydown = function (e) {
   if (e.keyCode === 13) {
     var word = input.value;
     setStateHtml("努力查找中...");
+    input.select();
     search(word).then(res => {
       document.getElementById('result').innerHTML = buildResultHtml(res);
     }).catch(err => {

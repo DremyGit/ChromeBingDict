@@ -2,6 +2,8 @@ import 'es6-promise';
 import search from '../search';
 import { saveKey2Storage, findKeyFromStorage, key2KeyName, keyName2Key} from '../common/key';
 
+const version = '1.3.0';
+
 var input = document.getElementById('text');
 
 function buildResultHtml(result) {
@@ -48,7 +50,7 @@ input.onkeydown = function (e) {
 };
 
 document.getElementById('about').onclick = function about() {
-  setStateHtml('<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v1.2.2</li></ul>');
+  setStateHtml(`<ul><li>Chrome Bing Dict</li><li>开发: Dremy</li><li>版本: v${version}</li></ul>`);
 };
 document.getElementById('setting').onclick = function setting() {
   var settingHtml = '' +

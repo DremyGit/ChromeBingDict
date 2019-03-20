@@ -8,7 +8,8 @@ const paths = {
 module.exports = {
   entry: {
     index: paths.app + '/scripts/entry-index.js',
-    "chrome-dict": paths.app + '/scripts/entry-content.js'
+    "chrome-dict": paths.app + '/scripts/entry-content.js',
+    background: paths.app + '/scripts/entry-background.js'
   },
   output: {
     path: paths.output,

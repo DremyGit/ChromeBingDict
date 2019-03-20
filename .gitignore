@@ -1,6 +1,7 @@
 /.idea
 /node_modules
 /.tmp
+/tmp
 /dist
 dist.*
 .DS_Store

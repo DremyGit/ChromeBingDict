@@ -3,7 +3,9 @@ import "whatwg-fetch"
 
 export function doSearch(word) {
   const url = `https://cn.bing.com/dict/search?mkt=zh-cn&q=${encodeURIComponent(word)}`;
-  return fetch(url).then(res => res.text())
+  return new Promise((resolve) => {
+    chrome.runtime.sendMessage({ word }, resolve)
+  });
 }
 
 export default function (text) {

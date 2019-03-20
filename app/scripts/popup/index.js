@@ -2,7 +2,7 @@ import 'es6-promise';
 import search from '../search';
 import { saveKey2Storage, findKeyFromStorage, key2KeyName, keyName2Key} from '../common/key';
 
-const version = '1.3.0';
+const version = '1.4.0';
 
 var input = document.getElementById('text');
 

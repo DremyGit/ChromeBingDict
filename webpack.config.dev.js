@@ -3,14 +3,15 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const paths = {
 
   app: './app',
-  output: './.tmp'
+  output: './tmp'
 };
 module.exports = {
   devtool: 'cheap-module-source-map',
   //devtool: 'cheap-module-eval-source-map',
   entry: {
     index: paths.app + '/scripts/entry-index.js',
-    "chrome-dict": paths.app + '/scripts/entry-content.js'
+    "chrome-dict": paths.app + '/scripts/entry-content.js',
+    background: paths.app + '/scripts/entry-background.js'
   },
   output: {
     path: paths.output,
